@@ -1,0 +1,64 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin:0;
+}
+
+#mapContainer {
+  height: 100%;
+  width: 100%;
+  background: lightgray;
+  margin-left:430px
+}
+
+#sidebar {
+  height: 100%;
+  width: 430px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #E5E5E5;
+  overflow-x: hidden;
+  padding: 20px;
+  margin: auto;
+}
+
+
+
+.info-box {
+  width: 350px;
+  position: absolute;
+
+  z-index: 100;
+  border-radius: 11px;
+  margin-bottom:15px
+}
+
+h1, h2, h3 {
+  margin: 15px 15px 15px 15px;
+  /* font-size: 1rem; */
+}
+
+.btn {
+  margin: 2px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.legend-color-box {
+  height: 15px;
+  width: 15px;
+  float: left;
+  margin-right: 10px;
+}
+
+.tab-content {
+  padding:15px;
+
+}
+
+span {
+
+    font-size: 12pt;
+}
