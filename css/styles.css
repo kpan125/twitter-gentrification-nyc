@@ -8,12 +8,12 @@ html, body {
   height: 100%;
   width: 100%;
   background: lightgray;
-  margin-left:430px
+  margin-left:470px;
 }
 
 #sidebar {
   height: 100%;
-  width: 430px;
+  width: 420px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -51,6 +51,8 @@ h1, h2, h3 {
   width: 15px;
   float: left;
   margin-right: 10px;
+  border-radius:1px;
+  border-color: black;
 }
 
 .tab-content {

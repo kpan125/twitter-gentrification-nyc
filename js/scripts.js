@@ -21,7 +21,7 @@ map.on('style.load', function() {
   // this sets up the geojson as a source in the map, which I can use to add visual layers
   map.addSource('twitter-data', {
     type: 'geojson',
-    data: './data/twitter-final.geojson',
+    data: './data/twitter-NY-final.geojson',
   });
 
   // add a layer for choropleth-style fills
@@ -103,9 +103,9 @@ map.on('style.load', function() {
       '<b> Typology: </b>' + typologyDescription + " </br>" +
       '<b> Total # of Tweets: </b>' + numeral(lot.properties["total_tweets"]).format('0,0') + " </br>" +
       '<b> # of Local Tweets: </b>' + numeral(lot.properties["local_tweets"]).format('0,0') + " (" +
-      numeral(lot.properties["local_tweets"]/lot.properties["total_tweets"]).format('0.0%') + ")" + " </br>" +
+      lot.properties["pct_local"] + "%)" + " </br>" +
       '<b> # of Visitor Tweets: </b>' + numeral(lot.properties["visitor_tweets"]).format('0,0') + " (" +
-      numeral(lot.properties["visitor_tweets"]/lot.properties["total_tweets"]).format('0.0%') + ")" + " </br>" +
+      lot.properties["pct_visitor"] + "%)" + " </br>" +
         // '<ul class="list-group">' +
         // '<img src="url-address/" >' + feature2.properties['Image'] +
         // '<li class="list-group-item"> <b> Neighborhood </b>' + ntaName +" </li>" +
@@ -150,13 +150,13 @@ $('#buttonAll').on('click', function() {
         type: 'interval',
         property: "total_tweets",
         stops: [
-          [338, hexCodes[0]],
-          [9020, hexCodes[1]],
-          [18301, hexCodes[2]],
-          [31957, hexCodes[3]],
-          [51267, hexCodes[4]],
-          [81530, hexCodes[5]],
-          [132609, hexCodes[6]],
+          [allTweetStops[0], hexCodes[0]],
+          [allTweetStops[1], hexCodes[1]],
+          [allTweetStops[2], hexCodes[2]],
+          [allTweetStops[3], hexCodes[3]],
+          [allTweetStops[4], hexCodes[4]],
+          [allTweetStops[5], hexCodes[5]],
+          [allTweetStops[6], hexCodes[6]],
         ]
         });
   map.setPaintProperty('highlight-line', 'line-opacity', 0.8);
@@ -164,29 +164,6 @@ $('#buttonAll').on('click', function() {
 
 });
 
-$('#buttonNeighbor').on('click', function() {
-  console.log('hello neighbors/visitors')
-  $('.legend').hide();
-  $('.neighbor-legend').show();
-
-  map.setPaintProperty('tract-fill', 'fill-opacity', 0.7);
-  map.setPaintProperty('tract-fill', 'fill-color', {
-        type: 'interval',
-        property: "visitor_tweets",
-        stops: [
-          [224, hexCodes[0]],
-          [4865, hexCodes[1]],
-          [11251, hexCodes[2]],
-          [21109, hexCodes[3]],
-          [37289, hexCodes[4]],
-          [61133, hexCodes[5]],
-          [99624, hexCodes[6]],
-        ]
-        });
-  map.setPaintProperty('highlight-line', 'line-opacity', 0.8);
-  map.setPaintProperty('highlight-line', 'line-color', "lavender");
-
-});
 
 $('#buttonLocal').on('click', function() {
   console.log('hello locals')
@@ -196,16 +173,41 @@ $('#buttonLocal').on('click', function() {
   map.setPaintProperty('tract-fill', 'fill-opacity', 0.7);
   map.setPaintProperty('tract-fill', 'fill-color', {
         type: 'interval',
-        property: "local_tweets",
+        property: "pct_local",
         stops: [
-          [21, hexCodes[0]],
-          [4905, hexCodes[1]],
-          [10408, hexCodes[2]],
-          [17860, hexCodes[3]],
-          [28709, hexCodes[4]],
-          [49840, hexCodes[5]],
-          [99914, hexCodes[6]],
+          [localStops[0], hexCodes[0]],
+          [localStops[1], hexCodes[1]],
+          [localStops[2], hexCodes[2]],
+          [localStops[3], hexCodes[3]],
+          [localStops[4], hexCodes[4]],
+          [localStops[5], hexCodes[5]],
+          [localStops[6], hexCodes[6]],
 
+        ]
+        });
+  map.setPaintProperty('highlight-line', 'line-opacity', 0.8);
+  map.setPaintProperty('highlight-line', 'line-color', "lavender");
+
+});
+
+
+$('#buttonVisitor').on('click', function() {
+  console.log('hello visitors')
+  $('.legend').hide();
+  $('.visitor-legend').show();
+
+  map.setPaintProperty('tract-fill', 'fill-opacity', 0.7);
+  map.setPaintProperty('tract-fill', 'fill-color', {
+        type: 'interval',
+        property: "pct_visitor",
+        stops: [
+          [visitorStops[0], hexCodes[0]],
+          [visitorStops[1], hexCodes[1]],
+          [visitorStops[2], hexCodes[2]],
+          [visitorStops[3], hexCodes[3]],
+          [visitorStops[4], hexCodes[4]],
+          [visitorStops[5], hexCodes[5]],
+          [visitorStops[6], hexCodes[6]],
         ]
         });
   map.setPaintProperty('highlight-line', 'line-opacity', 0.8);
