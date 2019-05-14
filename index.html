@@ -10,6 +10,7 @@
 
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css?v=1.0">
   </head>
 
@@ -21,43 +22,69 @@
 <button type="button" class="btn btn-info" id="buttonAll" >All Tweets</button>
 <button type="button" class="btn btn-info" id="buttonLocal">Local Tweets</button>
 <button type="button" class="btn btn-info" id="buttonVisitor">Visitor Tweets</button>
-<button type="button" class="btn btn-primary" id="buttonTypology" style="width:370px;">Gentrification Typology</button>
+<button type="button" class="btn btn-primary" id="buttonTypology" style="width:98%; margin">Gentrification Typologies</button>
 
 
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-home" aria-selected="true">About</a>
-        <a class="nav-item nav-link" id="nav-methods-tab" data-toggle="tab" href="#nav-methods" role="tab" aria-controls="nav-profile" aria-selected="false">Methodology</a>
-        <a class="nav-item nav-link" id="nav-legend-tab" data-toggle="tab" href="#nav-legend" role="tab" aria-controls="nav-contact" aria-selected="false">Legend</a>
+        <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-home" aria-selected="true"> <i class="fas fa-info-circle"></i> About</a>
+        <a class="nav-item nav-link" id="nav-methods-tab" data-toggle="tab" href="#nav-methods" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="fas fa-search"></i> Methodology</a>
+        <a class="nav-item nav-link" id="nav-legend-tab" data-toggle="tab" href="#nav-legend" role="tab" aria-controls="nav-contact" aria-selected="false"> <i class="fas fa-layer-group"></i> Legend</a>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">home</div>
-      <div class="tab-pane fade" id="nav-methods" role="tabpanel" aria-labelledby="nav-methods-tab">yay</div>
+      <div class="tab-pane fade show active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+        <h5>Welcome!</h5>
+        <p>This map was created in support of the Urban Displacement Project – 2019 CUSP capstone project
+          exploring the relation between “user-generated” Twitter data and gentrification/displacement.
+          Click on one of the above buttons above to toggle the information displayed on the map. Once data
+          is displayed, click on a census tract to view more information about the tract.</p>
+
+
+        <h5>Urban Displacement Project</h5>
+        <p>All data was collected and provided by the Urban Displacement Project at UC Berkeley,
+          a research initiative that aims to understand the processes of gentrification and displacement. </p>
+
+        <h5>Data</h5>
+        <p>Click on the Methodology tab to view more information on how the data was collected and
+          calculated. Locations with higher proportion of tweets from visitors rather than local residents
+          are expected to be correlated with higher levels of gentrification and displacement.</p>
+
+      </div>
+      <div class="tab-pane fade" id="nav-methods" role="tabpanel" aria-labelledby="nav-methods-tab">
+          <h5> <i class="fab fa-twitter-square"></i> Twitter Data</h5>
+<p> twitter info </p>
+
+          <h5> <i class="fas fa-city"></i> Gentrification Typologies </h5>
+<p> typology info</p>
+
+
+      </div>
+
       <div class="tab-pane fade" id="nav-legend" role="tabpanel" aria-labelledby="nav-legend-tab">
+        <div class="legend load-legend">
+          <p style="font-size: 12pt">Click on one of the buttons above to display some data! </p>
+
+        </div>
 
         <div class="legend alltweets-legend">
           <!-- We'll programmatically make the legend here -->
-          <span>All Tweets</span><br/>
-          <span>a lot of tweets</span><br/>
+          <h6>Count of Tweets</h6>
         </div>
 
         <div class="legend visitor-legend">
           <!-- We'll programmatically make the legend here -->
-          <span>Visitor Tweets</span><br/>
-          <span>a lot of tweets</span><br/>
+          <h6>Percentage of Visitor Tweets</h6>
         </div>
 
         <div class="legend local-legend">
           <!-- We'll programmatically make the legend here -->
-          <span>Local Tweets</span><br/>
-          <span>a lot of tweets</span><br/>
+          <h6>Percentage of Local Tweets</h6>
         </div>
 
         <div class="legend typology-legend">
           <!-- We'll programmatically make the legend here -->
-          <span>LI = Low Income Areas</span><br/>
-          <span>MHI/VHI = Medium-to-High or Very High Income Areas</span><br/>
+
         </div>
 
       </div>
@@ -75,6 +102,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/scripts.js"></script>

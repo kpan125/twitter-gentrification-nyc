@@ -16,7 +16,7 @@ var TypologyLookup = (code) => {
     case 2:
       return {
         color: '#653df4',
-        description: 'LI - Ongoing Displacement of Low-Income Households',
+        description: 'LI - Ongoing Displacement of LI Households',
       };
     case 3:
       return {
@@ -61,30 +61,53 @@ var TypologyLookup = (code) => {
   }
 };
 
-// for (var i=1; i<5; i++) {
+
+// for (var i=1; i<11; i++) {
 //   // lookup the typology info for the current iteration
 //   const TypologyInfo = TypologyLookup(i);
 //
 //   // this is a simple jQuery template, it will append a div to the legend with the color and description
-//   $('.alltweets-legend').append(`
+//   $('.typology-legend').append(`
 //     <div>
 //       <div class="legend-color-box" style="background-color:${TypologyInfo.color};"></div>
-//       ${TypologyInfo.description}
+//       <span> ${TypologyInfo.description} </span>
 //     </div>
 //   `)
 // }
 
-
-
-for (var i=1; i<11; i++) {
+$('.typology-legend').append(`<h6>LI = Low Income Areas</h6>`)
+for (var i=1; i<5; i++) {
   // lookup the typology info for the current iteration
   const TypologyInfo = TypologyLookup(i);
-
-  // this is a simple jQuery template, it will append a div to the legend with the color and description
   $('.typology-legend').append(`
     <div>
       <div class="legend-color-box" style="background-color:${TypologyInfo.color};"></div>
-      ${TypologyInfo.description}
+      <span> ${TypologyInfo.description} </span>
+    </div>
+  `)
+}
+$('.typology-legend').append(`<span> </span>`)
+$('.typology-legend').append(`<h6>MHI = Medium-to-High Income Areas</h6>`)
+$('.typology-legend').append(`<h6>VHI = Very High Income Areas</h6>`)
+for (var i=5; i<10; i++) {
+  // lookup the typology info for the current iteration
+  const TypologyInfo = TypologyLookup(i);
+  $('.typology-legend').append(`
+    <div>
+      <div class="legend-color-box" style="background-color:${TypologyInfo.color};"></div>
+      <span> ${TypologyInfo.description} <span>
+    </div>
+  `)
+}
+$('.typology-legend').append(`<span> </span>`)
+$('.typology-legend').append(`<h6>Missing Data</h6>`)
+for (var i=10; i<11; i++) {
+  // lookup the typology info for the current iteration
+  const TypologyInfo = TypologyLookup(i);
+  $('.typology-legend').append(`
+    <div>
+      <div class="legend-color-box" style="background-color:${TypologyInfo.color};"></div>
+      <span> ${TypologyInfo.description} </span>
     </div>
   `)
 }
@@ -95,21 +118,21 @@ for (var i=0; i<7; i++) {
   $('.alltweets-legend').append(`
     <div>
       <div class="legend-color-box" style="background-color:${hexCodes[i]};"></div>
-      ${allTweetStops[i]} - ${allTweetStops[i+1]-1} tweets
+      <span> ${allTweetStops[i]} - ${allTweetStops[i+1]-1} tweets </span>
     </div>
   `)
 
   $('.local-legend').append(`
     <div>
       <div class="legend-color-box" style="background-color:${hexCodes[i]};"></div>
-      ${localStops[i]}% - ${localStops[i+1]-1}%
+      <span> ${localStops[i]}% - ${localStops[i+1]-1}% </span>
     </div>
   `)
 
   $('.visitor-legend').append(`
     <div>
       <div class="legend-color-box" style="background-color:${hexCodes[i]};"></div>
-      ${visitorStops[i]}% - ${visitorStops[i+1]-1}%
+      <span> ${visitorStops[i]}% - ${visitorStops[i+1]-1}% </span>
     </div>
   `)
 }

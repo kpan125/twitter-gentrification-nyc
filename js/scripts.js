@@ -15,6 +15,7 @@ map.addControl(new mapboxgl.NavigationControl());
 //load map and initialize hidden layers
 map.on('style.load', function() {
   $('.legend').hide();
+  $('.load-legend').show();
   // you can use map.getStyle() in the console to inspect the basemap layers
   map.setPaintProperty('water', 'fill-color', '#a4bee8')
 
@@ -46,7 +47,7 @@ map.on('style.load', function() {
         stops: [[12, 0], [14.8, 1]], // zoom-dependent opacity, the lines will fade in between zoom level 14 and 14.8
       }
     }
-  });
+  }, 'waterway-label');
 
   // add an empty data source, which we will use to highlight the lot the user is hovering over
   map.addSource('highlight-feature', {
@@ -65,7 +66,7 @@ map.on('style.load', function() {
     paint: {
       'line-width': 3,
       'line-opacity': 0,
-      'line-color': 'lavender',
+      'line-color': 'purple',
     }
   });
 

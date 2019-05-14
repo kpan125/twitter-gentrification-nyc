@@ -4,16 +4,22 @@ html, body {
   margin:0;
 }
 
+span, p {
+  margin: 15px 15px 15px 15px;
+  font-size: 10pt;
+}
+
 #mapContainer {
   height: 100%;
   width: 100%;
   background: lightgray;
-  margin-left:470px;
+  margin-left:29%;
 }
 
 #sidebar {
   height: 100%;
-  width: 420px;
+  /* width: 420px; */
+  width: 29%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -22,9 +28,14 @@ html, body {
   overflow-x: hidden;
   padding: 20px;
   margin: auto;
+
 }
 
+.nav-item{
+  text-align:center;
+  /* display: inline-block; */
 
+}
 
 .info-box {
   width: 350px;
@@ -35,7 +46,7 @@ html, body {
   margin-bottom:15px
 }
 
-h1, h2, h3 {
+h1, h2, h3, h5, h6 {
   margin: 15px 15px 15px 15px;
   /* font-size: 1rem; */
 }
@@ -50,17 +61,20 @@ h1, h2, h3 {
   height: 15px;
   width: 15px;
   float: left;
-  margin-right: 10px;
-  border-radius:1px;
-  border-color: black;
+  margin-left: 15px;
+  margin-top: 5px;
+  /* margin-right: 5px; */
+
 }
 
-.tab-content {
+.tab-pane {
+  height:100%;
   padding:15px;
 
 }
 
-span {
-
-    font-size: 12pt;
+.tab-content {
+  background-color: lavender;
+    /* height: 100%; */
+  border-style: groove;
 }
