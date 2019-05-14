@@ -18,7 +18,6 @@ span, p {
 
 #sidebar {
   height: 100%;
-  /* width: 420px; */
   width: 29%;
   position: fixed;
   z-index: 1;
@@ -31,20 +30,29 @@ span, p {
 
 }
 
-.nav-item{
-  text-align:center;
-  /* display: inline-block; */
-
+/* Code for color styling of MapboxGL popups */
+/* from https://stackoverflow.com/questions/44554692/style-a-mapbox-popups-pointer-indicator */
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+    border-bottom-color: #262626;
+    }
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+    border-top-color: #262626;
+    }
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+    border-right-color: #262626;
+    }
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+    border-left-color: #262626;
+    }
+.mapboxgl-popup-content
+{
+  background-color: #262626;
 }
 
-.info-box {
-  width: 350px;
-  position: absolute;
-
-  z-index: 100;
-  border-radius: 11px;
-  margin-bottom:15px
-}
 
 h1, h2, h3, h5, h6 {
   margin: 15px 15px 15px 15px;
@@ -63,18 +71,15 @@ h1, h2, h3, h5, h6 {
   float: left;
   margin-left: 15px;
   margin-top: 5px;
-  /* margin-right: 5px; */
 
 }
 
 .tab-pane {
   height:100%;
   padding:15px;
-
 }
 
 .tab-content {
   background-color: lavender;
-    /* height: 100%; */
   border-style: groove;
 }

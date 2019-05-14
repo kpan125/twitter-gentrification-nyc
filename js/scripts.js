@@ -80,9 +80,7 @@ map.on('style.load', function() {
 
     // get the first feature from the array of returned features.
     var lot = features[0]
-        console.log(lot);
-    // console.log(lot)
-    // console.log(e)
+
     if (lot) {  // if there's a lot under the mouse, do stuff
       map.getCanvas().style.cursor = 'pointer';  // make the cursor a pointer
 
@@ -90,35 +88,22 @@ map.on('style.load', function() {
       var typologyDescription = lot.properties["typology"];
       var ntaName = lot.properties["NTAName"];
 
-      // use jquery to display the geoid and typology the sidebar
-      $('#address').text("GEOID: " + lot.properties.geoid);
-      $('#landuse').text(typologyDescription);
-
+      console.log(lot);
+      console.log(typologyDescription);
       //add popup to display typology of selected tract
       new mapboxgl.Popup()
       .setLngLat(e.lngLat)
       .setHTML(
 
-      '<div id="popup" class="popup" style="z-index: 10;">' +
+      `<div id="popup" class="popup" style="z-index: 10; color:${TypologyLookup(typologyDescription).color};">` +
       '<b> Neighborhood: </b>' + ntaName +" </br>" +
-      '<b> Typology: </b>' + typologyDescription + " </br>" +
+      '<b> Typology: </b>' + typologyDescription  + " </br>" +
       '<b> Total # of Tweets: </b>' + numeral(lot.properties["total_tweets"]).format('0,0') + " </br>" +
       '<b> # of Local Tweets: </b>' + numeral(lot.properties["local_tweets"]).format('0,0') + " (" +
       lot.properties["pct_local"] + "%)" + " </br>" +
       '<b> # of Visitor Tweets: </b>' + numeral(lot.properties["visitor_tweets"]).format('0,0') + " (" +
       lot.properties["pct_visitor"] + "%)" + " </br>" +
-        // '<ul class="list-group">' +
-        // '<img src="url-address/" >' + feature2.properties['Image'] +
-        // '<li class="list-group-item"> <b> Neighborhood </b>' + ntaName +" </li>" +
-        // '<li class="list-group-item"> Typology: ' + typologyDescription + " </li>" +
-        // '<li class="list-group-item">' + feature2.properties['Fixtures'] + " </li>" +
-        // '<li class="list-group-item">' + feature2.properties['Fixtures2'] + " </li>" +
-        // '<li class="list-group-item">' + feature2.properties['Fixtures3'] + " </li>" +
-        // '<li class="list-group-item">' + feature2.properties['Fixtures4'] + " </li>" +
-        // '<li class="list-group-item">' + feature2.properties['Fixtures5'] + " </li>" +
-        // '<li class="list-group-item">' + feature2.properties['Fixtures6'] + " </li>" +
-        // '<li class="list-group-item">' + feature2.properties['Fixtures7'] + " </li>" +
-        // '</ul>
+
         '</div>'
         )
       .addTo(map);
@@ -227,44 +212,44 @@ $('#buttonTypology').on('click', function() {
         property: "typology",
         stops: [
             [
-              "LI - Not Losing Low-Income Households",
-              TypologyLookup(1).color,
+              typologies[0],
+              TypologyLookup(typologies[0]).color,
             ],
             [
-              "LI - Ongoing Displacement of Low-Income Households",
-              TypologyLookup(2).color,
+              typologies[1],
+              TypologyLookup(typologies[1]).color,
             ],
             [
-              "LI - At Risk of Gentrification",
-              TypologyLookup(3).color,
+              typologies[2],
+              TypologyLookup(typologies[2]).color,
             ],
             [
-              "LI - Ongoing Gentrification",
-              TypologyLookup(4).color,
+              typologies[3],
+              TypologyLookup(typologies[3]).color,
             ],
             [
-              "MHI - Advanced Gentrification",
-              TypologyLookup(5).color,
+              typologies[4],
+              TypologyLookup(typologies[4]).color,
             ],
             [
-              "MHI - Stable or Early Stage of Exclusion",
-              TypologyLookup(6).color,
+              typologies[5],
+              TypologyLookup(typologies[5]).color,
             ],
             [
-              "MHI - Ongoing Exclusion",
-              TypologyLookup(7).color,
+              typologies[6],
+              TypologyLookup(typologies[6]).color,
             ],
             [
-              "MHI - Advanced Exclusion",
-              TypologyLookup(8).color,
+              typologies[7],
+              TypologyLookup(typologies[7]).color,
             ],
             [
-              "VHI - Super Gentrification or Exclusion",
-              TypologyLookup(9).color,
+              typologies[8],
+              TypologyLookup(typologies[8]).color,
             ],
             [
-              "Missing Data",
-              TypologyLookup(10).color,
+              typologies[9],
+              TypologyLookup(typologies[9]).color,
             ],
           ]
         });

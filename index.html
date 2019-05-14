@@ -35,29 +35,45 @@
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
         <h5>Welcome!</h5>
-        <p>This map was created in support of the Urban Displacement Project – 2019 CUSP capstone project
+        <p>This map was created in support of the 2019 NYU-CUSP capstone project
           exploring the relation between “user-generated” Twitter data and gentrification/displacement.
-          Click on one of the above buttons above to toggle the information displayed on the map. Once data
-          is displayed, click on a census tract to view more information about the tract.</p>
+          <b> Click on one of the above buttons above to toggle the information displayed on the map. </b>
+          Once data is displayed, click on a census tract to view more information about the tract.</p>
 
+          <h5>Data</h5>
+          <p>Click on the Methodology tab to view more information on how the data was collected and
+            calculated. Locations with higher proportion of tweets from visitors rather than local residents
+            are expected to be correlated with higher levels of gentrification and displacement, although
+            the accuracy of that is in the process of being studied!</p>
 
         <h5>Urban Displacement Project</h5>
-        <p>All data was collected and provided by the Urban Displacement Project at UC Berkeley,
-          a research initiative that aims to understand the processes of gentrification and displacement. </p>
-
-        <h5>Data</h5>
-        <p>Click on the Methodology tab to view more information on how the data was collected and
-          calculated. Locations with higher proportion of tweets from visitors rather than local residents
-          are expected to be correlated with higher levels of gentrification and displacement.</p>
+        <p>All data was collected and provided by the project sponsor, the
+          <a href="https://www.urbandisplacement.org/">Urban Displacement Project (UDP)</a> at UC Berkeley.
+          The UDP is a research initiative that aims to understand the processes of gentrification and
+          displacement. The goal of UDP is to "produce rigorous research and create tools to empower advocates
+          and policymakers, to reframe conversations, and to train and inspire the next generation of leaders
+          in equitable development."</p>
 
       </div>
       <div class="tab-pane fade" id="nav-methods" role="tabpanel" aria-labelledby="nav-methods-tab">
-          <h5> <i class="fab fa-twitter-square"></i> Twitter Data</h5>
-<p> twitter info </p>
+
 
           <h5> <i class="fas fa-city"></i> Gentrification Typologies </h5>
-<p> typology info</p>
+<p> The gentrification and displacement typology index was developed by the UDP for the entire 31-county NY
+  metropolitan region. Each census tract is classified into one of several typologies based on various census
+  data on attributes including housing, demographic, and education data. The full classification methodology
+  and criteria can be found from the UDP
+  <a href="https://www.urbandisplacement.org/sites/default/files/images/udp_methodology_for_ny_-_jan_2019.pdf">here</a>.</p>
 
+<h5> <i class="fab fa-twitter-square"></i> Twitter Data</h5>
+<p> Geotagged Twitter metadata (containing information on time and location of a user’s tweets) for
+the NY metropolitan region were obtained by the UDP for the years 2012-2015. The data was processed
+and aggregrated by the UDP at the census tract level. </br> </br>
+
+The home location for a user was determined based on where the user tweeted the most, and this defined
+whether a particular tweet was classified as from a “local” or a “visitor.”  Data points from users that
+did not have a home location or users that tweeted less than 5 times were not included in the dataset.
+</p>
 
       </div>
 

@@ -5,57 +5,63 @@ var allTweetStops = [350, 9000, 18500, 32000, 51500, 81500, 133000, 236501];
 var localStops = [0, 15, 30, 45, 60, 72, 85, 101];
 
 var visitorStops = [0, 15, 30, 45, 60, 72, 85, 101];
+
+var typologies = ['LI - Not Losing Low-Income Households', 'LI - Ongoing Displacement of Low-Income Households',
+                  'LI - At Risk of Gentrification', 'LI - Ongoing Gentrification', 'MHI - Advanced Gentrification',
+                  'MHI - Stable or Early Stage of Exclusion', 'MHI - Ongoing Exclusion', 'MHI - Advanced Exclusion',
+                  'VHI - Super Gentrification or Exclusion', 'Missing Data']
+
 // a helper function for looking up colors and descriptions for typologies
 var TypologyLookup = (code) => {
   switch (code) {
-    case 1:
+    case typologies[0]:
       return {
-        color: '#0000ff',
-        description: 'LI - Not Losing Low-Income Households',
+        color: '#3f49ff',
+        description: 'Not Losing Low-Income Households',
       };
-    case 2:
+    case typologies[1]:
       return {
         color: '#653df4',
-        description: 'LI - Ongoing Displacement of LI Households',
+        description: 'Ongoing Displacement of LI Households',
       };
-    case 3:
+    case typologies[2]:
       return {
         color: '#8a62ee',
-        description: 'LI - At Risk of Gentrification',
+        description: 'At Risk of Gentrification',
       };
-    case 4:
+    case typologies[3]:
       return {
         color: '#9b87de',
-        description: 'LI - Ongoing Gentrification',
+        description: 'Ongoing Gentrification',
       };
-    case 5:
+    case typologies[4]:
       return {
-        color: '#f7cabf',
-        description: 'MHI - Advanced Gentrification',
+        color: '#f8b1a0',
+        description: 'Advanced Gentrification',
       };
-    case 6:
+    case typologies[5]:
       return {
         color: '#ffa474',
-        description: 'MHI - Stable or Early Stage of Exclusion',
+        description: 'Stable or Early Stage of Exclusion',
       };
-    case 7:
+    case typologies[6]:
       return {
         color: '#e75758',
-        description: 'MHI - Ongoing Exclusion',
+        description: 'Ongoing Exclusion',
       };
-    case 8:
+    case typologies[7]:
       return {
         color: '#c0223b',
-        description: 'MHI - Advanced Exclusion',
+        description: 'Advanced Exclusion',
       };
-    case 9:
+    case typologies[8]:
       return {
         color: '#8b0000',
-        description: 'VHI - Super Gentrification or Exclusion',
+        description: 'Super Gentrification or Exclusion',
       };
     default:
       return {
-        color: '#bab8b6',
+        color: '#c9c9c9',
         description: 'Missing Data',
       };
   }
@@ -75,10 +81,10 @@ var TypologyLookup = (code) => {
 //   `)
 // }
 
-$('.typology-legend').append(`<h6>LI = Low Income Areas</h6>`)
-for (var i=1; i<5; i++) {
+$('.typology-legend').append(`<h6>Lower Income (LI) Tracts</h6>`)
+for (var i=0; i<4; i++) {
   // lookup the typology info for the current iteration
-  const TypologyInfo = TypologyLookup(i);
+  const TypologyInfo = TypologyLookup(typologies[i]);
   $('.typology-legend').append(`
     <div>
       <div class="legend-color-box" style="background-color:${TypologyInfo.color};"></div>
@@ -86,12 +92,11 @@ for (var i=1; i<5; i++) {
     </div>
   `)
 }
-$('.typology-legend').append(`<span> </span>`)
-$('.typology-legend').append(`<h6>MHI = Medium-to-High Income Areas</h6>`)
-$('.typology-legend').append(`<h6>VHI = Very High Income Areas</h6>`)
-for (var i=5; i<10; i++) {
+// $('.typology-legend').append(`<span> </span>`)
+$('.typology-legend').append(`<h6>Moderate To High Income (MHI) or Very High Income (VHI) Tracts</h6>`)
+for (var i=4; i<9; i++) {
   // lookup the typology info for the current iteration
-  const TypologyInfo = TypologyLookup(i);
+  const TypologyInfo = TypologyLookup(typologies[i]);
   $('.typology-legend').append(`
     <div>
       <div class="legend-color-box" style="background-color:${TypologyInfo.color};"></div>
@@ -99,11 +104,11 @@ for (var i=5; i<10; i++) {
     </div>
   `)
 }
-$('.typology-legend').append(`<span> </span>`)
-$('.typology-legend').append(`<h6>Missing Data</h6>`)
-for (var i=10; i<11; i++) {
+
+$('.typology-legend').append(`<h6>Missing Data/Unclassified</h6>`)
+for (var i=9; i<10; i++) {
   // lookup the typology info for the current iteration
-  const TypologyInfo = TypologyLookup(i);
+  const TypologyInfo = TypologyLookup(typologies[i]);
   $('.typology-legend').append(`
     <div>
       <div class="legend-color-box" style="background-color:${TypologyInfo.color};"></div>
