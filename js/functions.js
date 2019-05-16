@@ -1,3 +1,4 @@
+// setting up arrays to store stops for displaying the data
 var hexCodes = ['#440154', '#443a83', '#31688e', '#20908d', '#35b779', '#8fd744', '#fde725'];
 
 var allTweetStops = [350, 9000, 18500, 32000, 51500, 81500, 133000, 236501];
@@ -68,23 +69,14 @@ var TypologyLookup = (code) => {
 };
 
 
-// for (var i=1; i<11; i++) {
-//   // lookup the typology info for the current iteration
-//   const TypologyInfo = TypologyLookup(i);
-//
-//   // this is a simple jQuery template, it will append a div to the legend with the color and description
-//   $('.typology-legend').append(`
-//     <div>
-//       <div class="legend-color-box" style="background-color:${TypologyInfo.color};"></div>
-//       <span> ${TypologyInfo.description} </span>
-//     </div>
-//   `)
-// }
-
+// Code for building gentrification typology legends.
+// Had to be split into three sections/loops in order to put the subheadings
+// in between the genrification categories
 $('.typology-legend').append(`<h6>Lower Income (LI) Tracts</h6>`)
 for (var i=0; i<4; i++) {
   // lookup the typology info for the current iteration
   const TypologyInfo = TypologyLookup(typologies[i]);
+  // append the divs to the appropriate legend class
   $('.typology-legend').append(`
     <div>
       <div class="legend-color-box" style="background-color:${TypologyInfo.color};"></div>
@@ -92,10 +84,9 @@ for (var i=0; i<4; i++) {
     </div>
   `)
 }
-// $('.typology-legend').append(`<span> </span>`)
+
 $('.typology-legend').append(`<h6>Moderate To High Income (MHI) or Very High Income (VHI) Tracts</h6>`)
 for (var i=4; i<9; i++) {
-  // lookup the typology info for the current iteration
   const TypologyInfo = TypologyLookup(typologies[i]);
   $('.typology-legend').append(`
     <div>
@@ -107,7 +98,6 @@ for (var i=4; i<9; i++) {
 
 $('.typology-legend').append(`<h6>Missing Data/Unclassified</h6>`)
 for (var i=9; i<10; i++) {
-  // lookup the typology info for the current iteration
   const TypologyInfo = TypologyLookup(typologies[i]);
   $('.typology-legend').append(`
     <div>
@@ -117,9 +107,8 @@ for (var i=9; i<10; i++) {
   `)
 }
 
+// Code for building legends for the Twitter buttons
 for (var i=0; i<7; i++) {
-
-  // this is a simple jQuery template, it will append a div to the legend with the color and description
   $('.alltweets-legend').append(`
     <div>
       <div class="legend-color-box" style="background-color:${hexCodes[i]};"></div>

@@ -1,32 +1,40 @@
 <!doctype html>
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
 
-    <title>NYC Twitter & Gentrification Typologies</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
+  <title>Twitter & Gentrification in New York City</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
 
-    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-  </head>
+  <!-- import styles for MapBoxGL, Bootstrap, FontAwesome, Google Fonts -->
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Lato" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
 
-  <body>
-    <div id="sidebar">
-      <h3>NYC Twitter & Gentrification Typologies</h3>
+<body>
+  <div id="sidebar">
+    <h3 id="title">Twitter & Gentrification in New York City</h3>
 
+    <!-- Buttons to toggle between display of different data on map.
+    The buttons are wrapped in containers for centering within the sidebar. -->
+    <div id="buttons-container">
+      <button type="button" class="btn btn-info" id="buttonAll" >All Tweets</button>
+      <button type="button" class="btn btn-info" id="buttonLocal">Local Tweets</button>
+      <button type="button" class="btn btn-info" id="buttonVisitor">Visitor Tweets</button>
+    </div>
+    <div id="buttons-container">
+      <button type="button" class="btn btn-primary" id="buttonTypology">Gentrification Typologies</button>
+    </div>
 
-<button type="button" class="btn btn-info" id="buttonAll" >All Tweets</button>
-<button type="button" class="btn btn-info" id="buttonLocal">Local Tweets</button>
-<button type="button" class="btn btn-info" id="buttonVisitor">Visitor Tweets</button>
-<button type="button" class="btn btn-primary" id="buttonTypology" style="width:98%; margin">Gentrification Typologies</button>
-
-
+    <!-- tabs for content in sidebar -->
+    <!-- code for tabs from https://getbootstrap.com/docs/4.3/components/navs/ -->
     <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-home" aria-selected="true"> <i class="fas fa-info-circle"></i> About</a>
         <a class="nav-item nav-link" id="nav-methods-tab" data-toggle="tab" href="#nav-methods" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="fas fa-search"></i> Methodology</a>
         <a class="nav-item nav-link" id="nav-legend-tab" data-toggle="tab" href="#nav-legend" role="tab" aria-controls="nav-contact" aria-selected="false"> <i class="fas fa-layer-group"></i> Legend</a>
@@ -34,92 +42,84 @@
     </nav>
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
-        <h5>Welcome!</h5>
+        <h5 class="heading">Welcome!</h5>
         <p>This map was created in support of the 2019 NYU-CUSP capstone project
           exploring the relation between “user-generated” Twitter data and gentrification/displacement.
-          <b> Click on one of the above buttons above to toggle the information displayed on the map. </b>
+          <b> Click on one of the above buttons to toggle the information displayed on the map. </b>
           Once data is displayed, click on a census tract to view more information about the tract.</p>
 
-          <h5>Data</h5>
+          <h5 class="heading">Data</h5>
           <p>Click on the Methodology tab to view more information on how the data was collected and
             calculated. Locations with higher proportion of tweets from visitors rather than local residents
             are expected to be correlated with higher levels of gentrification and displacement, although
             the accuracy of that is in the process of being studied!</p>
 
-        <h5>Urban Displacement Project</h5>
-        <p>All data was collected and provided by the project sponsor, the
-          <a href="https://www.urbandisplacement.org/">Urban Displacement Project (UDP)</a> at UC Berkeley.
-          The UDP is a research initiative that aims to understand the processes of gentrification and
-          displacement. The goal of UDP is to "produce rigorous research and create tools to empower advocates
-          and policymakers, to reframe conversations, and to train and inspire the next generation of leaders
-          in equitable development."</p>
+            <h5 class="heading">Urban Displacement Project</h5>
+            <p>All data was collected and provided by the project sponsor, the
+              <a href="https://www.urbandisplacement.org/">Urban Displacement Project (UDP)</a> at UC Berkeley.
+              The UDP is a research initiative that aims to understand the processes of gentrification and
+              displacement. The goal of UDP is to "produce rigorous research and create tools to empower advocates
+              and policymakers, to reframe conversations, and to train and inspire the next generation of leaders
+              in equitable development."</p>
+            </div>
 
-      </div>
-      <div class="tab-pane fade" id="nav-methods" role="tabpanel" aria-labelledby="nav-methods-tab">
+            <div class="tab-pane fade" id="nav-methods" role="tabpanel" aria-labelledby="nav-methods-tab">
+              <h5 class="heading"> <i class="fas fa-city"></i> Gentrification Typologies </h5>
+              <p> The gentrification and displacement typology index was developed by the UDP for the entire 31-county NY
+                metropolitan region. Each census tract is classified into one of several typologies based on various census
+                data on attributes including housing, demographic, and education data. The full classification methodology
+                and criteria can be found from the UDP
+                <a href="https://www.urbandisplacement.org/sites/default/files/images/udp_methodology_for_ny_-_jan_2019.pdf">here</a>.</p>
 
+                <h5 class="heading"><i class="fab fa-twitter-square"></i> Twitter Data</h5>
+                <p> Geotagged Twitter metadata (containing information on time and location of a user’s tweets) for
+                  the NY metropolitan region were obtained by the UDP for the years 2012-2015. The data was processed
+                  and aggregrated by the UDP at the census tract level. </br> </br>
 
-          <h5> <i class="fas fa-city"></i> Gentrification Typologies </h5>
-<p> The gentrification and displacement typology index was developed by the UDP for the entire 31-county NY
-  metropolitan region. Each census tract is classified into one of several typologies based on various census
-  data on attributes including housing, demographic, and education data. The full classification methodology
-  and criteria can be found from the UDP
-  <a href="https://www.urbandisplacement.org/sites/default/files/images/udp_methodology_for_ny_-_jan_2019.pdf">here</a>.</p>
+                  The home location for a user was determined based on where the user tweeted the most, and this defined
+                  whether a particular tweet was classified as from a “local” or a “visitor.”  Data points from users that
+                  did not have a home location or users that tweeted less than 5 times were not included in the dataset.
+                </p>
+              </div>
 
-<h5> <i class="fab fa-twitter-square"></i> Twitter Data</h5>
-<p> Geotagged Twitter metadata (containing information on time and location of a user’s tweets) for
-the NY metropolitan region were obtained by the UDP for the years 2012-2015. The data was processed
-and aggregrated by the UDP at the census tract level. </br> </br>
+              <div class="tab-pane fade" id="nav-legend" role="tabpanel" aria-labelledby="nav-legend-tab">
+                <div class="legend load-legend">
+                  <p style="font-size: 12pt">Click on one of the buttons above to display some data! </p>
 
-The home location for a user was determined based on where the user tweeted the most, and this defined
-whether a particular tweet was classified as from a “local” or a “visitor.”  Data points from users that
-did not have a home location or users that tweeted less than 5 times were not included in the dataset.
-</p>
+                </div>
+                <!-- content of legend is programatically created in "functions.js"
+                All legends have two classes, the overarching "legend" class and an additional class
+                identifying the corresponding which dataset the legend belongs to -->
+                <div class="legend alltweets-legend">
+                  <h6>Count of all tweets (summed from 2012-2015)</h6>
+                </div>
 
-      </div>
+                <div class="legend visitor-legend">
+                  <h6>Percentage of Visitor Tweets (2012-2015)</h6>
+                </div>
 
-      <div class="tab-pane fade" id="nav-legend" role="tabpanel" aria-labelledby="nav-legend-tab">
-        <div class="legend load-legend">
-          <p style="font-size: 12pt">Click on one of the buttons above to display some data! </p>
+                <div class="legend local-legend">
+                  <h6>Percentage of Local Tweets (2012-2015)</h6>
+                </div>
 
-        </div>
+                <div class="legend typology-legend">
 
-        <div class="legend alltweets-legend">
-          <!-- We'll programmatically make the legend here -->
-          <h6>Count of Tweets</h6>
-        </div>
+                </div>
 
-        <div class="legend visitor-legend">
-          <!-- We'll programmatically make the legend here -->
-          <h6>Percentage of Visitor Tweets</h6>
-        </div>
+              </div>
+            </div>
+          </div>
 
-        <div class="legend local-legend">
-          <!-- We'll programmatically make the legend here -->
-          <h6>Percentage of Local Tweets</h6>
-        </div>
+          <div id="mapContainer">
 
-        <div class="legend typology-legend">
-          <!-- We'll programmatically make the legend here -->
+          </div>
 
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-    <div id="mapContainer">
-
-
-
-      </div>
-
-
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
-    <script src="js/functions.js"></script>
-    <script src="js/scripts.js"></script>
-  </body>
+          <!-- import MapboxGL, Bootstrap, Numeral, and other JS packages-->
+          <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+          <script src="js/functions.js"></script>
+          <script src="js/scripts.js"></script>
+        </body>

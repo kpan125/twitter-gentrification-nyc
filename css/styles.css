@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   width: 100%;
   margin:0;
+  font-family: 'lato';
 }
 
 span, p {
@@ -35,34 +36,55 @@ span, p {
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
-    border-bottom-color: #262626;
-    }
+  border-bottom-color: #262626;
+}
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
-    border-top-color: #262626;
-    }
+  border-top-color: #262626;
+}
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
-    border-right-color: #262626;
-    }
+  border-right-color: #262626;
+}
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
-    border-left-color: #262626;
-    }
-.mapboxgl-popup-content
-{
+  border-left-color: #262626;
+}
+.mapboxgl-popup-content {
   background-color: #262626;
 }
 
 
 h1, h2, h3, h5, h6 {
   margin: 15px 15px 15px 15px;
-  /* font-size: 1rem; */
+}
+
+#title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: 24pt;
+  text-align: center;
+}
+
+.nav-item {
+  font-family: 'Raleway', sans-serif;
 }
 
 .btn {
   margin: 2px;
   font-weight: 500;
   border-radius: 5px;
+  display: inline-block;
+}
+
+/* wrapper container for centering first line of buttons */
+#buttons-container {
+  width: 100%;
+  text-align: center;
+}
+
+#buttonTypology {
+  width: 94%;
+  margin: 0 auto;
 }
 
 .legend-color-box {
@@ -82,4 +104,10 @@ h1, h2, h3, h5, h6 {
 .tab-content {
   background-color: lavender;
   border-style: groove;
+  border-radius: 15px;
+}
+
+.heading {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
 }
