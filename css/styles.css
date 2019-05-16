@@ -8,18 +8,20 @@ html, body {
 span, p {
   margin: 15px 15px 15px 15px;
   font-size: 10pt;
+
 }
 
+/* sets map area to fill entire screen, margin-left creates space for the sidebar */
 #mapContainer {
   height: 100%;
   width: 100%;
   background: lightgray;
-  margin-left:29%;
+  margin-left:30%;
 }
 
 #sidebar {
   height: 100%;
-  width: 29%;
+  width: 30%;
   position: fixed;
   z-index: 1;
   top: 0;

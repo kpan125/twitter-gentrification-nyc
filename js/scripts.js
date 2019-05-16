@@ -1,4 +1,3 @@
-// sets up my mapbox access token so they can track my usage of their basemap services
 mapboxgl.accessToken = 'pk.eyJ1Ijoia3dwMjI1IiwiYSI6ImNqdWQ5NjIydTB3bHMzeW9na3hybGpwZncifQ.z8p_gZgCZfgPdWIG-24ksQ';
 
 // instantiate the map
@@ -122,7 +121,6 @@ map.on('style.load', function() {
 
 //on button click, load map and legend for "All Tweets"
 $('#buttonAll').on('click', function() {
-  console.log('hello tweets')
   $('.legend').hide(); // hide all legend divs
   $('.alltweets-legend').show(); // only show the legend for the corresponding data
 
@@ -148,7 +146,6 @@ $('#buttonAll').on('click', function() {
 
 //on button click, load map and legend for "Local Tweets"
 $('#buttonLocal').on('click', function() {
-  console.log('hello locals')
   $('.legend').hide();
   $('.local-legend').show();
 
@@ -164,17 +161,14 @@ $('#buttonLocal').on('click', function() {
       [localStops[4], hexCodes[4]],
       [localStops[5], hexCodes[5]],
       [localStops[6], hexCodes[6]],
-
     ]
   });
   map.setPaintProperty('highlight-line', 'line-opacity', 0.8);
   map.setPaintProperty('highlight-line', 'line-color', "red");
-
 });
 
 //on button click, load map and legend for "Visitor Tweets"
 $('#buttonVisitor').on('click', function() {
-  console.log('hello visitors')
   $('.legend').hide();
   $('.visitor-legend').show();
 
@@ -194,12 +188,10 @@ $('#buttonVisitor').on('click', function() {
   });
   map.setPaintProperty('highlight-line', 'line-opacity', 0.8);
   map.setPaintProperty('highlight-line', 'line-color', "red");
-
 });
 
 //on button click, load map and legend for "Gentrification Typologies"
 $('#buttonTypology').on('click', function() {
-  console.log('hello typologies')
   $('.legend').hide();
   $('.typology-legend').show();
 
@@ -252,6 +244,4 @@ $('#buttonTypology').on('click', function() {
   });
   map.setPaintProperty('highlight-line', 'line-opacity', 0.8);
   map.setPaintProperty('highlight-line', 'line-color', "limegreen");
-
-
 });
